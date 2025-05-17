@@ -1,0 +1,24 @@
+@startuml Flow3_2
+!include Tubivi_Praxis.puml
+
+start
+partition "Profile" {
+    :User presses settings button;
+    
+    partition "Notifications" {
+    :Display settings modal;
+    :User toggles notifications ticker;
+    :Show notification;
+    :User toggles notification ticker;
+    :Show date time picker;
+    :User inputs time;
+    if (user presses cancel ) then (Yes)
+        :Cancel edits;
+        :Dismiss settings modal;
+    endif
+    if (user presses done button) then (Yes)
+        :Update DB;
+        :Dismiss settings modal;
+    endif
+    }
+}

@@ -1,0 +1,23 @@
+@startuml Flow2_1
+!include Tubivi_Praxis.puml
+
+start
+
+partition Tabs{
+:Hold Habit item;
+    partition Update_Progress {
+    if (Habit is Numeric?) then (Yes)
+        :Display slider;
+        :Set progress;
+        if (Progress = Max?) then (Yes)
+        :Mark habit as recorded;
+        endif
+        :Hide slider;
+    else
+        :Toggle recorded state;
+    endif
+    }
+
+}
+stop
+@enduml

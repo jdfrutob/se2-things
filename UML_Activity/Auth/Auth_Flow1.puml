@@ -1,0 +1,42 @@
+@startuml Flow1
+!include Tubivi_Praxis.puml
+
+|User|
+start
+
+:Launch App;
+
+if (Already Logged In?) then (Yes)
+  -> [Yes] : Go to Tabs   ;
+  stop
+else (No)
+  -> [No] :Show Login/Signup Screen;
+endif
+
+partition Auth {
+    partition Login {
+        if (User clicks "Login") then (Yes)
+          :Authenticate user;
+          if (Valid?) then (Yes)
+            :Redirect to Tabs ;
+          else
+            :Show login error;
+          endif
+        endif
+
+        partition Logout {
+            if (User clicks "Logout") then (Yes)
+              :Show confirmation dialog;
+              if (User confirms logout?) then (Yes)
+                :End session;
+                :Redirect to Auth ;
+              else
+                :Dismiss dialog;
+              endif
+            endif
+        }
+    }
+}
+
+stop
+@enduml

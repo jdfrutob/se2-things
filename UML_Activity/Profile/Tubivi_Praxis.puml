@@ -1,0 +1,41 @@
+@startuml Tubivi_Praxis
+
+' ========== FONT AND LAYOUT ==========
+skinparam defaultFontName "Century Gothic"
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+skinparam backgroundColor #e9efec
+skinparam shadowing false
+skinparam roundcorner 20
+
+' ========== ACTIVITY DIAGRAM COLORS ==========
+skinparam activity {
+  BackgroundColor #6a9c89
+  BorderColor #6a9c89
+  FontColor #FFFFFF
+}
+
+skinparam arrowColor #16423c
+
+' ========== NOTES ==========
+skinparam note {
+  BackgroundColor #e8f5f0
+  BorderColor #6a9c89
+  FontColor #123123
+}
+
+' ========== PARTITIONS / SWIMLANES ==========
+skinparam PartitionBackgroundColor #e9efec
+skinparam PartitionBorderColor #16423c
+skinparam PartitionFontColor #123123
+
+' ========== CLASS STYLING (if used) ==========
+skinparam class {
+  BackgroundColor #e8f5f0
+  BorderColor #6a9c89
+  FontColor #123123
+}
+
+' ========== ACTIVITY DIAGRAM ==========
+@enduml

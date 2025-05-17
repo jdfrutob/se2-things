@@ -1,0 +1,29 @@
+@startuml FLow3
+!include Tubivi_Praxis.puml
+
+|User|
+start
+
+partition Sign_Up {
+    if (User clicks "I don’t have an account") then (Yes)
+      :Show Signup Modal;
+      :User fills details;
+      :View Terms & Conditions;
+      :View Privacy Policy;
+      :User clicks "Sign Up";
+      if (Valid?) then (Yes)
+        :Show Email Verification Prompt;
+      else
+        :Show Error Message;
+      endif
+    endif
+}
+
+partition Signup_Verification {
+    :User receives verification email;
+    :User clicks link;
+    :App opens and redirects to Login Modal;
+}
+
+stop
+@enduml

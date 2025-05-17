@@ -1,0 +1,22 @@
+@startuml Flow1
+!include Tubivi_Praxis.puml
+
+start
+partition Tabs {
+  :Tap Habit button;
+
+    partition NewHabit {
+    :Display "New Habit" modal;
+    :Enter Cue;
+    :Enter Habit;
+    if (Add Description?) then (Yes)
+      :Enter Description;
+    endif
+    :Click "Promise";
+    :Save new habit;
+    :Dismiss modal;
+  }
+}
+
+stop
+@enduml

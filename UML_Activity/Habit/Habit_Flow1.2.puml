@@ -1,0 +1,28 @@
+@startuml Flow1_2
+!include Tubivi_Praxis.puml
+
+start
+partition Tabs {
+  :Tap Habit button;
+
+  partition NewNumericHabit {
+  :Display "New Habit" modal;
+  :Toggle Numeric Ticker;
+  :Enter Cue;
+  :Enter Habit;
+  :Enter Quantity;
+  :Enter Unit;
+  if (Add Description?) then (Yes)
+    :Enter Description;
+  endif
+  :Click "Promise";
+  :Save numeric habit;
+  :Dismiss modal;
+}
+}
+
+
+
+
+stop
+@enduml

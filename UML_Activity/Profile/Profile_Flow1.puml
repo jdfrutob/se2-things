@@ -1,0 +1,15 @@
+@startuml Flow 1
+!include Tubivi_Praxis.puml
+start
+
+partition "Profile" {
+  :User presses View Detailed Statistics button;
+  partition "View_Statistics" {
+    :Display Statistics Modal;
+    :User Presses Back;
+    :Dismiss Statistics Modal;
+  }
+  
+}
+stop
+@enduml

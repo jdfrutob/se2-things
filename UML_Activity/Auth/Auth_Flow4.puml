@@ -1,0 +1,18 @@
+@startuml FLow4
+!include Tubivi_Praxis.puml
+
+|User|
+start
+
+partition Theme_Toggle {
+    if (User clicks Theme Toggle) then (Yes)
+      if (System Theme  Light) then (Yes)
+        :Switch to Dark Theme;
+      else
+        :Switch to Light Theme;
+      endif
+    endif
+}
+
+stop
+@enduml

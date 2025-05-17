@@ -1,0 +1,25 @@
+@startuml Flow1_3
+!include Tubivi_Praxis.puml
+
+start
+partition Tabs{
+    :Hold Add button;
+    
+    partition Overwrite_Habit {
+    :Enter Bad Habit;
+    :Enter Good Habit;
+    if (Toggle Numeric?) then (Yes)
+        :Enter Quantity;
+        :Enter Unit;
+    endif
+    if (Add Description?) then (Yes)
+        :Enter Description;
+    endif
+    :Click "Promise";
+    :Overwrite habit in database;
+    :Dismiss modal;
+    }
+}
+
+stop
+@enduml

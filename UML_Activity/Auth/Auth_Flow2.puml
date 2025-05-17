@@ -1,0 +1,32 @@
+@startuml Flow2
+!include Tubivi_Praxis.puml
+
+|User|
+start
+
+partition Forgot_Password {
+    if (User clicks "Forgot Password") then (Yes)
+      :Show Forgot Password Modal;
+      :User enters email;
+      :User clicks "Reset Password";
+      :Show Success Screen;
+      :Redirect to Login Screen;
+    endif
+}
+
+partition Password_Reset {
+    :User receives reset link via email;
+    :User taps link (deep link);
+    :Show Reset Password Modal;
+    :User enters new password;
+    :User taps "Reset Password";
+    if (Valid?) then (Yes)
+      :Show Success;
+      :Redirect to Login;
+    else
+      :Show error message;
+    endif
+}
+
+stop
+@enduml

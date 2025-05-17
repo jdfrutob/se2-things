@@ -1,0 +1,35 @@
+@startuml Flow2
+!include Tubivi_Praxis.puml
+start
+
+partition "Profile" {
+  :User presses view all button;
+
+  partition "Achievements" {
+  :Display all achievements modal;
+  :User presses Edit Featured Achievement button;
+  :Switch to edit mode;
+  :User selects at most 3 achievements to feature/showcase;
+
+  if (User presses back button) then (yes)
+    :Cancel edits;
+    :Dismiss all achievements modal;
+    stop
+  else
+    :User presses save button;
+    :Update db;
+    :Toggle edit mode;
+  endif
+
+  :User presses any achievement;
+  :Display achievement detail modal;
+
+  :User presses back button;
+  :Dismiss all achievement modal;
+}
+}
+
+
+
+stop
+@enduml

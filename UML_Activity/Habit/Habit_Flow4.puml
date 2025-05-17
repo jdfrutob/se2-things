@@ -1,0 +1,16 @@
+@startuml Flow4
+!include Tubivi_Praxis.puml
+
+start
+Partition Tabs {
+  :Tap Net Indicator;
+
+    partition Net_Indicator {
+        :Show indicator modal;
+        :Press OK;
+        :Dismiss modal;
+    }
+}
+
+stop
+@enduml

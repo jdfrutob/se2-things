@@ -1,0 +1,22 @@
+@startuml Flow2
+!include Tubivi_Praxis.puml
+
+start
+partition Tabs {
+    :Click Edit button;
+
+    partition Update_Habit {
+        :Display Edit Habit modal;
+        :Edit fields;
+        if (Press Back?) then (Yes)
+            :Dismiss modal;
+            stop
+        else
+            :Click "Promise";
+            :Update habit in database;
+            :Dismiss modal;
+        endif
+    }
+}
+stop
+@enduml

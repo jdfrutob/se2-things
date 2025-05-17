@@ -1,0 +1,22 @@
+@startuml Flow3_1
+!include Tubivi_Praxis.puml
+
+start
+
+partition "Profile" {
+    :User presses settings button;
+    
+    partition Update_Username {
+    :Display settings modal;
+    :User edits username field;
+    if (user presses back button) then (Yes)
+        :Cancel edits;
+        :Dismiss settings modal;
+    endif
+    if (user presses done button) then (Yes)
+        :Update DB;
+        :Dismiss settings modal;
+    endif
+    }
+}
+stop

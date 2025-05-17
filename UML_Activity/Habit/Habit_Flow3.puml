@@ -1,0 +1,17 @@
+@startuml Flow3
+!include Tubivi_Praxis.puml
+
+start
+partition Tabs{
+:Press Trash icon;
+
+    partition Delete_Habit {
+        :Show confirm modal;
+        if (Confirm delete?) then (Yes)
+            :Delete habit from database;
+        endif
+        :Dismiss modal;
+    }
+}
+stop
+@enduml
