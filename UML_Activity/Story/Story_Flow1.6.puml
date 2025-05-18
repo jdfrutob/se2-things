@@ -1,0 +1,14 @@
+@startuml Flow1_6
+!include Tubivi_Praxis.puml
+start
+
+partition "Progression_Phase" {
+    :User reads through all pages;
+
+    if (Last page reached?) then (Yes)
+        :Save progress to DB;
+        :Dismiss reader modal;
+    endif
+}
+stop
+@enduml

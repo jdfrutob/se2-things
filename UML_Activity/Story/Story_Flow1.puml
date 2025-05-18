@@ -1,0 +1,47 @@
+@startuml Flow1
+!include Tubivi_Praxis.puml
+start
+
+partition "Story" {
+    :User taps story item;
+
+    partition "Reader" {
+        :Display reader modal;
+
+        if (User presses back button?) then (Yes)
+            :Dismiss reader modal;
+        else (No)
+            if (User taps screen?) then (Yes)
+                :Skip 15 characters on the text animation;
+            endif
+            if (User holds screen?) then (Yes)
+                :Speed up text animation;
+            endif
+            if (User double taps screen?) then (Yes)
+                :Skip text animation;
+            endif
+
+            if (Typing is done?) then (Yes)
+                if (There are effects gained/lost?) then (Yes)
+                    :Show attribute text;
+                endif
+                if (There are options?) then (Yes)
+                    :Show options;
+                    :User uses an option;
+                    :Navigate to that option's branch;
+                else (No)
+                    :Show swipe to continue;
+                    if (User swipes right?) then (Yes)
+                        :Go to next page;
+                    endif
+                endif
+            endif
+
+            if (No more pages left?) then (Yes)
+                :Show interaction screen;
+            endif
+        endif
+    }
+}
+stop
+@enduml

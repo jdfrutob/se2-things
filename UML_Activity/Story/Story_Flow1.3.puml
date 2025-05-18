@@ -1,0 +1,25 @@
+@startuml Flow1_3
+!include Tubivi_Praxis.puml
+start
+
+partition "Interaction_Phase" {
+    :User swipes left;
+    :User taps inventory button;
+
+    partition "Inventory" {
+        :Display inventory modal;
+
+        if (User presses background overlay?) then (Yes)
+            :Dismiss inventory modal;
+        else (No)
+            :User taps inventory item;
+            :Show inventory detail modal;
+
+            if (User presses background overlay?) then (Yes)
+                :Dismiss inventory modal;
+            endif
+        endif
+    }
+}
+stop
+@enduml

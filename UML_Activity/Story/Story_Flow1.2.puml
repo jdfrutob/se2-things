@@ -1,0 +1,18 @@
+@startuml Flow1_2
+!include Tubivi_Praxis.puml
+start
+
+partition "Interaction_Screen" {
+    :User taps card;
+
+    if (User doesn't have enough energy?) then (Yes)
+        :Show error;
+    else (No)
+        :Start card animation;
+        :Show encounter screen;
+        :User completes encounter;
+        :Subtract 1 energy;
+    endif
+}
+stop
+@enduml

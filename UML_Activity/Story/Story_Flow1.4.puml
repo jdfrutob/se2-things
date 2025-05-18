@@ -1,0 +1,31 @@
+@startuml Flow1_4
+!include Tubivi_Praxis.puml
+start
+
+partition "Interaction_Phase" {
+    :User swipes right;
+    :User presses re-roll button;
+
+    if (User doesn't have enough energy?) then (Yes)
+        :Show error;
+    else (No)
+        :Subtract 1 energy;
+        :Randomize shop items;
+    endif
+
+    :User presses shop item;
+    partition "Shop" {
+        :Display shop item details modal;
+
+        if (User presses background overlay?) then (Yes)
+            :Dismiss modal;
+        else (No)
+            :User presses purchase button;
+            :Subtract currency;
+            :Add item to inventory;
+            :Dismiss modal;
+        endif
+    }
+}
+stop
+@enduml

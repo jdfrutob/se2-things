@@ -1,0 +1,20 @@
+@startuml Flow2
+!include Tubivi_Praxis.puml
+start
+
+partition "Saves" {
+    :User holds save item;
+
+    partition "Delete_Save" {
+        :Display confirmation modal;
+
+        if (User presses no?) then (Yes)
+            :Dismiss confirmation modal;
+        else (No)
+            :Delete save;
+            :Dismiss confirmation modal;
+        endif
+    }
+}
+stop
+@enduml

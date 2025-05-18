@@ -1,0 +1,20 @@
+@startuml Flow1
+!include Tubivi_Praxis.puml
+start
+
+partition "Saves" {
+    :User taps new save button;
+
+    partition "New_Save" {
+        :User selects a story from the list;
+        :Show story details modal;
+
+        if (User presses background?) then (Yes)
+            :Dismiss modal;
+        else (User presses start)
+            :Dismiss new save modal;
+        endif
+    }
+}
+stop
+@enduml

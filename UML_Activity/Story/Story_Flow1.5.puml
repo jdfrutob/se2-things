@@ -1,0 +1,13 @@
+@startuml Flow1_5
+!include Tubivi_Praxis.puml
+start
+
+partition "Interaction_Phase" {
+    :User has no energy left;
+    :Show continue story button;
+    :User presses continue story button;
+    :Set phase to progression;
+    :Display reader;
+}
+stop
+@enduml

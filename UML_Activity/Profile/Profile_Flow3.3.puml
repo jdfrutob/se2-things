@@ -1,0 +1,42 @@
+@startuml Flow3_3
+!include Tubivi_Praxis.puml
+start
+
+partition "Profile" {
+    :User presses settings button;
+
+    partition "Change_Theme" {
+        :Display settings modal;
+        :User changes theme;
+        :Update app theme;
+        :Save to disk;
+        :User presses color buttons;
+        :Show color picker modal;
+
+        if (User selects an invalid color?) then (Yes)
+            :Disable save button;
+        else
+            :Update app theme;
+            if (User presses overlay background?) then (Yes)
+                :Cancel edits;
+                :Dismiss color picker modal;
+            else
+                :User presses save button;
+                :Save to disk;
+                :Dismiss color picker modal;
+            endif
+        endif
+
+        if (User presses reset to default?) then (Yes)
+            if (Theme is light?) then (Yes)
+                :Reset light theme colors;
+                :Save to disk;
+            else
+                :Reset dark theme colors;
+                :Save to disk;
+            endif
+        endif
+    }
+}
+stop
+@enduml

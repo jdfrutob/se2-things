@@ -1,0 +1,17 @@
+@startuml Flow3_4
+!include Tubivi_Praxis.puml
+start
+
+partition "Profile" {
+    :User presses settings button;
+
+    partition "Logout_Flow" {
+        :Display settings modal;
+        :User presses logout button;
+        :Update session state to offline;
+    }
+}
+
+:App navigates back to (auth);
+stop
+@enduml
