@@ -1,7 +1,5 @@
 @startuml Flow1
 !include Tubivi_Praxis.puml
-
-|User|
 start
 
 :Launch App;

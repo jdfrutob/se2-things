@@ -1,7 +1,6 @@
 @startuml Flow2
 !include Tubivi_Praxis.puml
 
-|User|
 start
 
 partition Forgot_Password {
